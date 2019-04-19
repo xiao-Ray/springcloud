@@ -2,12 +2,12 @@ package com.springcloud.eurake;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-public class DemoEurakeServerApplication {
-
+@EnableEurekaServer
+public class DemoEurekaServerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DemoEurakeServerApplication.class, args);
+        SpringApplication.run(DemoEurekaServerApplication.class, args);
     }
-
 }
