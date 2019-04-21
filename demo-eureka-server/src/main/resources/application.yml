@@ -18,8 +18,8 @@ eureka:
     hostname: eureka01
   client:
     serviceUrl:
-#      defaultZone: http://localhost:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
       defaultZone: http://bban:123456@localhost:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
+#      defaultZone: http://bban:123456@47.111.162.9:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
     fetchRegistry: true
     registerWithEureka: true
 
@@ -35,8 +35,8 @@ eureka:
     hostname: eureka02
   client:
     serviceUrl:
-#      defaultZone: http://localhost:8701/eureka/    #加入安全验证则为http://bban:123456@localhost:8761/eureka
       defaultZone: http://bban:123456@localhost:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
+#      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
     fetchRegistry: true
     registerWithEureka: true
 
