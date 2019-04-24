@@ -1,0 +1,9 @@
+1.父工程中的dependencies需要放在<dependencyManagement>中,在Maven中dependencyManagement的作用其实相当于一个对所依赖jar包进行版本管理的管理器,
+这样父工程才能起到version管理的作用
+
+2.config-server: 当服务启动,根据本地bootstrap.yml文件从config-server中查找资源, config-server在自己的配置文件中可以配置本地或者远程git资源文件的路径,
+根据路径获取服务的配置文件
+注:可以配置消息总线的方式spring-bus,服务已经启动,此时修改了config-files中的配置文件,可以通知到服务重新读取配置文件而不需要重启
+
+3.feign-client: @Feign-client使某个接口可以通过httpClient,OKHttp等方式访问其他服务, 服务启动后将自己的服务信息注册到eureka中,ribbon会维护一份服务
+列表,通过feign去调用某个服务,ribbon会拦截到url,然后根据serverId匹配服务列表中的服务,选择其中的某一个发送请求,这就是负载均衡.
