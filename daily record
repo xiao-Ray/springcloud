@@ -1,0 +1,2 @@
+1.父工程中的dependencies需要放在<dependencyManagement>中,在Maven中dependencyManagement的作用其实相当于一个对所依赖jar包进行版本管理的管理器,
+这样父工程才能起到version管理的作用
