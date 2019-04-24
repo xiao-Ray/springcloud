@@ -19,6 +19,8 @@
         <module>demo-eureka-server</module>
         <module>demo-eureka-client</module>
         <module>demo-config-server</module>
+        <module>demo-feign-client</module>
+
     </modules>
 
     <properties>
@@ -29,7 +31,7 @@
         <druid-version>1.1.12</druid-version>
         <mybatis-spring-boot-starter-version>1.3.2</mybatis-spring-boot-starter-version>
         <spring-cloud-starter-netflix-eureka-version>2.0.2.RELEASE</spring-cloud-starter-netflix-eureka-version>
-        <spring-cloud-starter-feign-version>1.3.1.RELEASE</spring-cloud-starter-feign-version>
+        <feign-form-version>3.4.1</feign-form-version>
     </properties>
 
 
@@ -70,9 +72,14 @@
 
             <!--feign-->
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-feign</artifactId>
-                <version>${spring-cloud-starter-feign-version}</version>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>${feign-form-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form-spring</artifactId>
+                <version>${feign-form-version}</version>
             </dependency>
 
         </dependencies>

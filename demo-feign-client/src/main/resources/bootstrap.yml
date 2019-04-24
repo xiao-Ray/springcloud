@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: demo-feign-client
+  cloud:
+    config:
+      #      fail-fast: true
+      #      uri: http://localhost:9902       #直接指向config-server的地址,先开启服务再注册
+      profile: dev
+      label: master
+      discovery:
+        enabled: true                   # 表示使用服务发现的configserver配置，默认false
+        service-id: demo-config-server  #使用通过服务发现必须在本配置文件加上eureka的配置,这样才能通过服务列表找到配置服务
+
+#  profiles:
+#    active: dev   #根据applicationName+profilesActive查询配置文件
+eureka:
+  client:
+    service-url:
+      defaultZone: http://bban:123456@localhost:8701/eureka/,http://bban:123456@localhost:8702/eureka/
+  instance:
+    prefer-ip-address: true  #以ip 地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    #    hostname: ${spring.cloud.client.ipAddress}
+    #    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-renewal-interval-in-seconds: 1 #每间隔1s，向服务端发送一次心跳，证明自己依然”存活“
+    lease-expiration-duration-in-seconds: 2 #告诉服务端，如果我2s之内没有给你发心跳，就代表我“死”了，将我踢出掉
+
+  #rabbitmq实现springcloud bus消息总线,自动刷新配置文件
+  rabbitmq:
+    host: 47.111.162.9
+    port: 5672
+    username: guest
+    password: guest
+
+#management:
+#  security:
+#    enabled: false   #关闭安全验证
+
+#开启熔断器Hystrix设置
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      circuitBreaker:
+        sleepWindowInMilliseconds: 100000
+        forceClosed: true
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000

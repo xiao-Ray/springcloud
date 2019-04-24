@@ -11,3 +11,6 @@ public class DemoEurekaServerApplication {
         SpringApplication.run(DemoEurekaServerApplication.class, args);
     }
 }
+
+
+
