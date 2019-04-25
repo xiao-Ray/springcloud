@@ -16,7 +16,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://bban:123456@localhost:8701/eureka/,http://bban:123456@localhost:8702/eureka/
+      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/,http://bban:123456@47.111.162.9:8702/eureka/
   instance:
     prefer-ip-address: true  #以ip 地址注册
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
