@@ -19,3 +19,9 @@ java -jar demo-eureka-server-1.0.jar  --spring.profiles.active=peer2  >log2.out 
 启动脚本文件: nohup ./start.sh & (后台启动,关闭窗口也不会关闭该服务进程)
 查看运行的服务进程: ps -ef|grep java
 杀死进程: kill -9 xxx
+
+6.zuul网关: 启动zuul-client服务,端口9004,浏览器请求到zuul服务,zuul配置路由分发到服务上,当后台同名服务有多个时,ribbon实现负载均衡
+zuul-client的bootstrap.yml中配置 zuul.routes.helloApi.path=/helloApi/**,zuul.routes.helloApi.serviceId=demo-eureka-client
+此时url请求 localhost:9004/helloApi/hello -->zuul-client拦截, 根据helloApi匹配到eureka-client服务, 找到hello接口
+后台该eurekaClient服务启动两个实例,则ribbon循环调用,返回结果:
+请求成功http://192.168.43.199:9008/hello   ,请求成功http://192.168.43.199:9009/hello
