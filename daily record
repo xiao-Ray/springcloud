@@ -1,3 +1,5 @@
+参考书籍  --深入理解springcloud与微服务
+
 1.父工程中的dependencies需要放在<dependencyManagement>中,在Maven中dependencyManagement的作用其实相当于一个对所依赖jar包进行版本管理的管理器,
 这样父工程才能起到version管理的作用
 
@@ -25,3 +27,5 @@ zuul-client的bootstrap.yml中配置 zuul.routes.helloApi.path=/helloApi/**,zuul
 此时url请求 localhost:9004/helloApi/hello -->zuul-client拦截, 根据helloApi匹配到eureka-client服务, 找到hello接口
 后台该eurekaClient服务启动两个实例,则ribbon循环调用,返回结果:
 请求成功http://192.168.43.199:9008/hello   ,请求成功http://192.168.43.199:9009/hello
+
+7.

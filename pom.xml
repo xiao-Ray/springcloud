@@ -21,6 +21,8 @@
         <module>demo-config-server</module>
         <module>demo-feign-client</module>
         <module>demo-zuul-client</module>
+        <module>zipkin-server</module>
+        <module>demo-security-server</module>
 
     </modules>
 
@@ -34,6 +36,8 @@
         <spring-cloud-starter-netflix-eureka-version>2.0.2.RELEASE</spring-cloud-starter-netflix-eureka-version>
         <feign-form-version>3.4.1</feign-form-version>
         <spring-cloud-zuul-ratelimit-version>2.0.6.RELEASE</spring-cloud-zuul-ratelimit-version>
+        <zipkin-version>1.2.0.RELEASE</zipkin-version>
+        <security-version>2.0.6.RELEASE</security-version>
     </properties>
 
 
@@ -91,12 +95,35 @@
                 <version>${spring-cloud-zuul-ratelimit-version}</version>
             </dependency>
 
+            <!--zipkin-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+                <version>${zipkin-version}</version>
+            </dependency>
+
+            <!--security-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${security-version}</version>
+            </dependency>
+
+            <!--thymeleaf-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>2.0.6.RELEASE</version>
+            </dependency>
+
+           <!-- <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+                <version>3.0.2.RELEASE</version>
+            </dependency>-->
+
         </dependencies>
     </dependencyManagement>
-
-
-
-
 
 
 </project>
