@@ -2,4 +2,13 @@ spring:
   thymeleaf:
     mode: HTML5
     encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
     cache: false
+  devtools:
+    restart:
+      enabled: true
+#配置前缀
+#spring.thymeleaf.prefix=classpath:/templates/
+#配置后缀
+#spring.thymeleaf.suffix=.html

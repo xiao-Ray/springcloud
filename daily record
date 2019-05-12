@@ -28,4 +28,10 @@ zuul-client的bootstrap.yml中配置 zuul.routes.helloApi.path=/helloApi/**,zuul
 后台该eurekaClient服务启动两个实例,则ribbon循环调用,返回结果:
 请求成功http://192.168.43.199:9008/hello   ,请求成功http://192.168.43.199:9009/hello
 
-7.
+7.spring security: demo-security-server,认证服务。案例1的访问流程: SecurityConfig中定义请求的认证规则,拦截的资源,其中有几个重要的配置,
+.loginPage("/login")//请求验证时会重定向到login页面, .loginProcessingUrl("/doLogin")//交给security处理登录的url是/doLogin,
+.failureUrl("/login-error")//失败地址是login-error,
+ .antMatchers("/css/**","/index").permitAll()//定义放行的资源
+  .antMatchers("/user/**").hasRole("USER")//定义需要进行认证的资源,即当访问/user/*时,会重定向到login进行登录验证,
+  在此案例中,login的表单提交到/doLogin接口,则会被security接收进行认证处理,然后返回 return "redirect:/user/index",则可以访问到页面.
+  认证不正确则返回error页面.
