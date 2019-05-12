@@ -1,0 +1,95 @@
+body{
+    padding-left: 3%;
+    padding-top: 2%;
+}
+.marginTop{ margin-top: 20px;}
+#main{
+    width: 600px;
+    height: 450px;
+}
+.bgIcon{
+    margin-top: 5px;
+    height: 40px;
+    font-size: 40px;
+}
+.mdIcon{
+    display: inline-block;
+    height: 60px;
+    line-height: 70px;
+    font-size: 30px;
+    color: #FFF;
+    float: right;
+}
+.iconText{
+    text-align: right;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #FFF;
+}
+.iconBox{
+    margin-right: 3%;
+    margin-bottom: 3%;
+    box-shadow: 10px 10px 5px #888888;
+}
+.tableContainer{
+    box-shadow: 10px 10px 5px #888888;
+}
+.iconBox:hover .bgIcon{
+     font-size: 50px;
+    color: #D9534F;
+ }
+.iconBox:hover .mdIcon{
+    font-size: 40px;
+    color: #D9534F;
+}
+.iconBox:hover .iconText{
+    font-size: 18px;
+    color: #D9534F;
+}
+.rightBox{
+    padding-left: 3%;
+}
+.iconBox .glyphicon{
+    color: #FFF;
+    margin-top: 25%;
+}
+.nextArea{
+    margin: 3px 5px;
+}
+@media screen and (max-width:767px){
+    #main{
+        width: 300px;
+        height: 225px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    #main{
+        width: 350px;
+        height: 260px;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    #main{
+        width: 480px;
+        height: 360px;
+    }
+}
+@media screen and (min-width:1200px){
+    #main{
+        width: 600px;
+        height: 450px;
+    }
+}
+#totalHouse{ background-color: #27A9E3}
+#builtHouse{ background-color: #28B779}
+#payHouse{ background-color: #852B99}
+#passRate{ background-color: #FFB848}
+.iconBox:hover{cursor: pointer;}
+.tableContainer{
+    background-color: #FAFAFA;
+    padding: 3%;
+}
+.title{
+    margin: 5px;
+    cursor: auto;
+}

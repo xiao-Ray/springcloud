@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Hello Spring Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- style -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div>
+    <h1>权限不够</h1>
+
+    <div sec:authorize="isAuthenticated()">
+        <p>已有用户登录</p>
+        <p>登录用户:<span sec:authentication="name"></span></p>
+        <p>用户角色:<span sec:authentication="principal.authorities"></span></p>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+        <P>未有用户登录</P>
+    </div>
+
+    <p>拒绝访问</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <title>Hello Spring Security</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- style -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<h1>Hello Spring Security</h1>
+<!--<h1>Hello Spring Security111</h1>-->
+<p>这个界面没有受到保护,你可以进入已被保护的界面</p>
+<div th:fragment="logout" sec:authorize="isAuthenticated()">
+    登录用户:<span sec:authentication="name"></span>
+    用户角色:<span sec:authentication="principal.authorities"></span>
+    <div>
+        <form action="#" th:action="@{/logout}" method="post">
+            <input type="submit" value="登出">
+        </form>
+    </div>
+</div>
+
+<ul>
+    <li>点击<a th:href="@{/user/index}">去/user/index已被保护的界面</a></li>
+</ul>
+</body>
+</html>

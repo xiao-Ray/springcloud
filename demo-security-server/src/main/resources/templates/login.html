@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+
+    <!-- style -->
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<h1>Login Page</h1>
+<p>User角色用户: lr/123456</p>
+<p>Admin角色用户: admin/123456</p>
+<p th:if="${loginError}" class="error">用户名或密码错误</p>
+
+<form th:action="@{/doLogin}" method="post">
+<!--<form th:action="@{/login}" method="post">-->
+    <label for="username">用户名</label>
+    <input type="text" id="username" name="username" autofocus="autofocus"/><br/>
+
+    <label for="password">密码</label>
+    <input type="text" id="password" name="password"/><br/>
+
+    <input type="submit" value="登录"/>
+</form>
+
+<p><a href="/index" th:href="@{/index}">返回首页</a></p>
+
+
+</body>
+</html>
