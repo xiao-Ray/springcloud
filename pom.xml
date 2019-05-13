@@ -23,6 +23,7 @@
         <module>demo-zuul-client</module>
         <module>zipkin-server</module>
         <module>demo-security-server</module>
+        <module>demo-common-core</module>
 
     </modules>
 

@@ -16,7 +16,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 //配置类
 @Configuration
 @EnableWebSecurity    //开启websecurity功能
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)  //开启方法级别的保护
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //WebSecurityConfigurerAdapter配置如何验证用户信息
