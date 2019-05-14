@@ -21,14 +21,16 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public void deleteBlog(long id) {
+    public int deleteBlog(long id) {
         //迭代
         Iterator<Blog> iterator = list.iterator();
         while(iterator.hasNext()){
             Blog blog=iterator.next();
             if (blog.getId()==id){
                 iterator.remove();
+                return 1;
             }
         }
+        return 0;
     }
 }

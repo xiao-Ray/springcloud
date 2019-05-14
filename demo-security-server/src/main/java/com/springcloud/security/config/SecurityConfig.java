@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/css/**","/index").permitAll()   //以css和index开头的不需要验证
                 .antMatchers("/user/**").hasRole("USER")   //user和blogs开头的需要验证,并且角色必须是USER
-                .antMatchers("/blogs/**").hasRole("USER")
+                .antMatchers("/blog/**").hasRole("USER")
                 .and()
                 //请求验证时会重定向到login页面
                 .formLogin().loginPage("/login")

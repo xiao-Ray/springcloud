@@ -7,5 +7,5 @@ import java.util.List;
 public interface BlogService {
     List<Blog> getBlog();
 
-    void  deleteBlog(long id);
+    int  deleteBlog(long id);
 }
