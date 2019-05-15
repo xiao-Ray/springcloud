@@ -12,5 +12,17 @@
     <groupId>com.springcloud</groupId>
     <artifactId>demo-common-core</artifactId>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>5.1.1.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

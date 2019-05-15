@@ -1,6 +1,8 @@
 package com.springcloud.security.config;
 
+import com.springcloud.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,17 +21,24 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableGlobalMethodSecurity(prePostEnabled = true)  //开启方法级别的保护
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Qualifier("userService")
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     //WebSecurityConfigurerAdapter配置如何验证用户信息
     //注入AuthenticationManagerBuilder,并通过AuthenticationManagerBuilder创建一个admin的用户,密码,角色
     //使得每个请求都需要认证,会生成一个登陆表单和成功页面,还继承HttpServletHttp等API方法
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         //在内存中加载一个lr用户,密码需要加密
-        auth.inMemoryAuthentication()
+      /*  auth.inMemoryAuthentication()
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .withUser("lr").password(new BCryptPasswordEncoder().encode("123456")).roles("USER");
+                .withUser("lr").password(new BCryptPasswordEncoder().encode("123456")).roles("USER");*/
 //                .withUser("lr").password("123456").roles("USER");
 //        auth.userDetailsService(userDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
+
+        //从数据库中获取用户信息
+        auth.userDetailsService(userDetailsService);
     }
 
     //定义验证的规则,哪些需要验证,满足的条件
