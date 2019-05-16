@@ -23,6 +23,7 @@
         <module>demo-zuul-client</module>
         <module>zipkin-server</module>
         <module>demo-security-server</module>
+        <module>demo-common-core</module>
 
     </modules>
 
@@ -38,6 +39,7 @@
         <spring-cloud-zuul-ratelimit-version>2.0.6.RELEASE</spring-cloud-zuul-ratelimit-version>
         <zipkin-version>1.2.0.RELEASE</zipkin-version>
         <security-version>2.0.6.RELEASE</security-version>
+        <mysql-connector-java-version>5.1.47</mysql-connector-java-version>
     </properties>
 
 
@@ -116,11 +118,12 @@
                 <version>2.0.6.RELEASE</version>
             </dependency>
 
-           <!-- <dependency>
-                <groupId>org.thymeleaf.extras</groupId>
-                <artifactId>thymeleaf-extras-springsecurity4</artifactId>
-                <version>3.0.2.RELEASE</version>
-            </dependency>-->
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java-version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

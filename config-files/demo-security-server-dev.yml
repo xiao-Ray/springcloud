@@ -2,20 +2,6 @@ server:
   port: 9905
 
 spring:
-  thymeleaf:
-    mode: HTML5
-    encoding: UTF-8
-    prefix: classpath:/templates/
-    suffix: .html
-    cache: false
-  devtools:
-    restart:
-      enabled: true
-#配置前缀
-#spring.thymeleaf.prefix=classpath:/templates/
-#配置后缀
-#spring.thymeleaf.suffix=.html
-
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/spring-security?nullCatalogMeansCurrent=true&autoReconnect=true&useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false

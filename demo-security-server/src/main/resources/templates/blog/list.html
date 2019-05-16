@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Public House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content=""/>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/favicon.ico}">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <!-- Font Awesome -->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+
+    <!-- style -->
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body class="overflow-hidden">
+    <div class="smart-widget">
+        <div class="smart-widget-inner">
+            <div class="smart-widget-body">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+
+                        <th>博客编号</th>
+                        <th>博客名称</th>
+                        <th>博客描述</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:if="${list != null &&  #lists.size(list) > 0}"
+                        th:each="blog:${list}">
+                        <td th:text="${blog.id}"></td>
+                        <td th:text="${blog.name}"></td>
+                        <td th:text="${blog.content}"></td>
+                        <td>
+                            <input type="button" th:onclick="del([[${blog.id}]])" class="btn btn-sm btn-danger" value="删除">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Jquery -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<!--<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>-->
+<!-- Parsley -->
+<script th:src="@{/js/parsley.min.js}"></script>
+
+<!--layer.js-->
+<script th:src="@{/layer/layer.js}"></script>
+
+<!-- Bootstrap -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!-- Slimscroll -->
+<script th:src='@{/js/jquery.slimscroll.min.js}'></script>
+
+<!-- script -->
+<script th:src="@{/js/script/script.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+
+
+    function del(id) {
+        $.ajax({
+            url: '/blog/'+id+'/deletion',
+            method: 'get',
+            dataType: 'json',
+            success: function (result) {
+                alert("1111");
+                if (result.code == 200) {
+                   alert("删除成功");
+                   location.reload();
+                } else {
+                    alert("删除失败");
+                }
+            },
+            error: function () {
+                alert("数据请求异常,请查看控制台错误!");
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

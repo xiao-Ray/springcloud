@@ -8,8 +8,7 @@
 注:可以配置消息总线的方式spring-bus,服务已经启动,此时修改了config-files中的配置文件,可以通知到服务重新读取配置文件而不需要重启
 
 3.feign-client: @Feign-client使某个接口可以通过httpClient,OKHttp等方式访问其他服务, 服务启动后将自己的服务信息注册到eureka中,ribbon会维护一份
-服务
-列表,通过feign去调用某个服务,ribbon会拦截到url,然后根据serverId匹配服务列表中的服务,选择其中的某一个发送请求,这就是负载均衡.
+服务列表,通过feign去调用某个服务,ribbon会拦截到url,然后根据serverId匹配服务列表中的服务,选择其中的某一个发送请求,这就是负载均衡.
 
 4.不要用spring initialzer创建module,容易出错
 开启熔断器Hystrix,并在feignclient的调用接口指定fallbackFactory, 该类实现了feignclient的接口,在熔断后回滚到该类进行处理.最好设置好熔断的时间

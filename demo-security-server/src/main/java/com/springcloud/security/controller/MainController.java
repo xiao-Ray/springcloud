@@ -32,12 +32,12 @@ public class MainController {
         return "login";
     }
 
-    @RequestMapping("/doLogin")
+   /* @RequestMapping("/doLogin")
     public String doLogin(@RequestParam(value="username",required = false) String username,
                           @RequestParam(value="password",required = false) String password){
 
         return "redirect:/user/index";
-    }
+    }*/
 
     @RequestMapping("/login-error")
     public String loginError(Model model){
