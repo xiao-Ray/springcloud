@@ -9,9 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.springcloud</groupId>
-    <artifactId>demo-eureka-client</artifactId>
-    <version>1.0</version>
+    <artifactId>demo-test-server</artifactId>
+
 
     <dependencies>
 
@@ -51,4 +50,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>

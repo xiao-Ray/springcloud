@@ -24,6 +24,7 @@
         <module>zipkin-server</module>
         <module>demo-security-server</module>
         <module>demo-common-core</module>
+        <module>demo-test-server</module>
 
     </modules>
 
