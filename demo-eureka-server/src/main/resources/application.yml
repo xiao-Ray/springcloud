@@ -6,9 +6,8 @@ spring:
       name: bban
       password: 123456
 
----
-spring:
-  profiles: peer1
+#spring:
+#  profiles: peer1
 server:
   port: 8701
 eureka:
@@ -17,29 +16,28 @@ eureka:
   instance:
     hostname: eureka01
   client:
-    serviceUrl:
+#    serviceUrl:
 #      defaultZone: http://bban:123456@localhost:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
-      defaultZone: http://bban:123456@47.111.162.9:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
-    fetchRegistry: true
-    registerWithEureka: true
+#      defaultZone: http://bban:123456@47.111.162.9:8702/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
+    fetchRegistry: false
+    registerWithEureka: false
 
----
-spring:
-  profiles: peer2
-server:
-  port: 8702
-eureka:
-  server:
-    enable-self-preservation: false   #保护机制,测试环境关闭
-  instance:
-    hostname: eureka02
-  client:
-    serviceUrl:
-#      defaultZone: http://bban:123456@localhost:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
-      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
-    fetchRegistry: true
-    registerWithEureka: true
-
+#---
+#spring:
+#  profiles: peer2
+#server:
+#  port: 8702
+#eureka:
+#  server:
+#    enable-self-preservation: false   #保护机制,测试环境关闭
+#  instance:
+#    hostname: eureka02
+#  client:
+#    serviceUrl:
+##      defaultZone: http://bban:123456@localhost:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
+#      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/   #加入安全验证则为http://bban:123456@localhost:8761/eureka
+#    fetchRegistry: true
+#    registerWithEureka: true
 
 #单机
 #server:

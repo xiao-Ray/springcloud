@@ -6,26 +6,28 @@ spring:
   cloud:
     config:
       server:
-#        native:       #本地仓库配置文件
+        native:       #本地仓库配置文件
+          search-locations: /usr/local/springcloud/demo-config/config-files
+#          search-locations: D:/java/IdeaProjects/springcloudDemo/config-files
 #          search-locations: classpath:/config
-        git:           #git远程仓库配置文件
-          uri: https://github.com/xiao-Ray/springcloud.git
-          searchPaths: config-files
-          username: xiao-Ray
-          password: liu941218
-          label: master
-#    profiles:
-#      active: native
-  rabbitmq:
-    host: 47.111.162.9
-    port: 5672
-    username: guest
-    password: guest
+#        git:           #git远程仓库配置文件
+#          uri: https://github.com/xiao-Ray/springcloud.git
+#          searchPaths: config-files
+#          username: xiao-Ray
+#          password: liu941218
+#          label: master
+  profiles:
+    active: native
+#  rabbitmq:
+#    host: 47.111.162.9
+#    port: 5672
+#    username: guest
+#    password: guest
 
 eureka:
   client:
     service-url:
-      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/,http://bban:123456@47.111.162.9:8702/eureka/
+      defaultZone: http://bban:123456@47.111.162.9:8701/eureka/
   instance:
     prefer-ip-address: true  #以ip 地址注册
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}

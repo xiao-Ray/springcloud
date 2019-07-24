@@ -4,6 +4,8 @@ package com.springcloud.test.controller;
 import com.springcloud.commoncore.ExceptionUtil.ExceptionCast;
 import com.springcloud.commoncore.ExceptionUtil.ExceptionTest1;
 import com.springcloud.commoncore.entity.User;
+import com.springcloud.commoncore.uuid.UUID8Util;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 /**
  * 测试异常类
@@ -14,7 +16,8 @@ public class TestExceptionController {
 
 //        testE1(null);
 //        testE2(null);
-        testE3(null);
+//        testE3(null);
+        testuuid();
 
     }
 
@@ -40,4 +43,8 @@ public class TestExceptionController {
     }
 
     //通过
+    public static void testuuid(){
+        String s = UUID8Util.generate8UUID();
+        System.out.println(s);
+    }
 }
